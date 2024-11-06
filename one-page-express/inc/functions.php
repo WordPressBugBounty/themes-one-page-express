@@ -453,40 +453,43 @@ if ( ! function_exists( "one_page_express_get_header" ) ) {
 	}
 }
 
+function one_page_express_get_social_icons_config() {
+        $one_page_express_footer_socials_icons = array(
+        array(
+            'icon'  => "fa-facebook-f",
+            'link'  => "#",
+            'label' => __( 'Icon 1', 'one-page-express' ),
+            'id'    => 'social_icon_1',
+        ),
+        array(
+            'icon'  => "fa-twitter",
+            'link'  => "#",
+            'label' => __( 'Icon 2', 'one-page-express' ),
+            'id'    => 'social_icon_2',
+        ),
+        array(
+            'icon'  => "fa-google-plus",
+            'link'  => "#",
+            'label' => __( 'Icon 3', 'one-page-express' ),
+            'id'    => 'social_icon_3',
+        ),
+        array(
+            'icon'  => "fa-behance",
+            'link'  => "#",
+            'label' => __( 'Icon 4', 'one-page-express' ),
+            'id'    => 'social_icon_4',
+        )
+    ,
+        array(
+            'icon'  => "fa-dribbble",
+            'link'  => "#",
+            'label' => __( 'Icon 5', 'one-page-express' ),
+            'id'    => 'social_icon_5',
+        ),
+    );
+        return $one_page_express_footer_socials_icons;
+}
 
-$one_page_express_footer_socials_icons = array(
-	array(
-		'icon'  => "fa-facebook-f",
-		'link'  => "#",
-		'label' => __( 'Icon 1', 'one-page-express' ),
-		'id'    => 'social_icon_1',
-	),
-	array(
-		'icon'  => "fa-twitter",
-		'link'  => "#",
-		'label' => __( 'Icon 2', 'one-page-express' ),
-		'id'    => 'social_icon_2',
-	),
-	array(
-		'icon'  => "fa-google-plus",
-		'link'  => "#",
-		'label' => __( 'Icon 3', 'one-page-express' ),
-		'id'    => 'social_icon_3',
-	),
-	array(
-		'icon'  => "fa-behance",
-		'link'  => "#",
-		'label' => __( 'Icon 4', 'one-page-express' ),
-		'id'    => 'social_icon_4',
-	)
-,
-	array(
-		'icon'  => "fa-dribbble",
-		'link'  => "#",
-		'label' => __( 'Icon 5', 'one-page-express' ),
-		'id'    => 'social_icon_5',
-	),
-);
 
 function one_page_express_footer_settings( $wp_customize ) {
 
@@ -669,7 +672,8 @@ function one_page_express_footer_settings( $wp_customize ) {
 		),
 	) );
 
-	global $one_page_express_footer_socials_icons;
+    $one_page_express_footer_socials_icons = one_page_express_get_social_icons_config();
+
 	foreach ( $one_page_express_footer_socials_icons as $social ) {
 		$sociallabel = $social['label'];
 		$socialid    = $social['id'];
@@ -849,7 +853,7 @@ function one_page_express_header_clasic_settings( $wp_customize, $inner ) {
 }
 
 function one_page_express_footer_social_icons() {
-	global $one_page_express_footer_socials_icons;
+    $one_page_express_footer_socials_icons = one_page_express_get_social_icons_config();
 
 	foreach ( $one_page_express_footer_socials_icons as $social_icon ) {
 		$socialid = $social_icon['id'];
@@ -1455,10 +1459,12 @@ if ( ! class_exists( "Kirki" ) ) {
 function one_page_express_partial_render_callback( $partial ) {
 	return get_theme_mod( $partial->settings[0] );
 }
+add_action('init', function() {
+    one_page_express_header_settings( false );
+    one_page_express_header_settings( true );
+    one_page_express_header_frontpage_settings();
+}, 9);
 
-one_page_express_header_settings( false );
-one_page_express_header_settings( true );
-one_page_express_header_frontpage_settings();
 
 function one_page_express_customize_register_action( $wp_customize ) {
 	one_page_express_header_clasic_settings( $wp_customize, false );
@@ -2839,13 +2845,15 @@ if ( ! function_exists( 'ope_post_type_is' ) ) {
 
 
 //More colors in pro
+add_action('init', function() {
+    Kirki::add_field( 'one_page_express', array(
+        'type'     => 'ope-info-pro',
+        'label'    => __( 'Customize all theme colors in PRO. @BTN@', 'one-page-express' ),
+        'section'  => 'colors',
+        'settings' => "one_page_express_customize_colors_buttons_pro",
+    ) );
+}, 9);
 
-Kirki::add_field( 'one_page_express', array(
-	'type'     => 'ope-info-pro',
-	'label'    => __( 'Customize all theme colors in PRO. @BTN@', 'one-page-express' ),
-	'section'  => 'colors',
-	'settings' => "one_page_express_customize_colors_buttons_pro",
-) );
 
 
 function one_page_express_kirki_configuration( $config ) {

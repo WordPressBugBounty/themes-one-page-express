@@ -3,7 +3,7 @@
 Contributors: horearadu
 Tags:   one-column, right-sidebar, custom-header, custom-menu, custom-logo, full-width-template, theme-options, translation-ready, blog, featured-images, threaded-comments
 Requires at least: 5.6
-Tested up to: 6.6
+Tested up to: 6.7
 
 == Description ==
 

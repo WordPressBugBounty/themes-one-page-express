@@ -99,9 +99,9 @@ if ( ! class_exists( 'Kirki_Controls_Typography_Control' ) ) {
 						<select {{{ data.inputAttrs }}} id="kirki-typography-font-family-{{{ data.id }}}" placeholder="{{ data.l10n['select-font-family'] }}"></select>
 					</div>
 					
-					<# if ( data.default['addwebfont'] ) { #>
+					<!--<# if ( data.default['addwebfont'] ) { #>
 						<a href="#" class="button edit button-primary addwebfont">{{ data.l10n['addwebfont'] }}</a>
-					<# } #>
+					<# } #>-->
 
 					<# if ( true === data.show_variants || false !== data.default.variant ) { #>
 						<div class="variant hide-on-standard-fonts kirki-variant-wrapper">

@@ -1270,3 +1270,28 @@ li#accordion-section-one_page_express_header_layout h3:before {
 .customize-control.customize-control-kirki.customize-control-kirki-checkbox input {
     line-height: 1;
 }
+
+/* WP 6.7 fixes */
+.customize-pane-parent {
+    overflow-x: hidden !important;
+}
+
+li#accordion-section-one_page_express_header_layout:has(button) h3::before {
+    display: none;
+}
+
+li#accordion-section-one_page_express_header_layout button:before {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 1;
+    font-family: dashicons;
+    text-decoration: inherit;
+    font-weight: normal;
+    font-style: normal;
+    vertical-align: top;
+    text-align: center;
+    content: "\f100";
+    margin-right: .5rem;
+}
+/* end */
