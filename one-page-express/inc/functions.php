@@ -2292,6 +2292,7 @@ function one_page_express_scripts() {
 
 	wp_enqueue_style( 'one-page-express-style', get_stylesheet_uri(), array(), $ver );
 	wp_enqueue_style( 'one-page-express-font-awesome', get_template_directory_uri() . '/assets/font-awesome/font-awesome.min.css', array(), $ver );
+	wp_enqueue_style( 'one-page-express-font-awesome-extra', get_template_directory_uri() . '/assets/font-awesome/font-awesome-extra.min.css', array(), $ver );
 	wp_enqueue_style( 'one-page-express-animate', get_template_directory_uri() . '/assets/css/animate.css', array(), $ver );
 
 	wp_enqueue_script( 'one-page-express-smoothscroll', get_template_directory_uri() . '/assets/js/smoothscroll.js', array( 'jquery' ), $ver );
@@ -2652,12 +2653,26 @@ add_action( 'wp_ajax_cp_list_fa', function () {
 			'sizes' => null,
 		);
 	}
-
+	$result = apply_filters( "wp_ajax_cp_list_fa_result", $result );
 	echo json_encode( $result );
 	exit;
 
 } );
-
+add_filter('wp_ajax_cp_list_fa_result', function($result) {
+	$icons  = ( require get_template_directory() . "/customizer/font-awesome-extra-icons-list.php" );
+	foreach ( $icons as $icon ) {
+		$title    = str_replace( '-', ' ', str_replace( 'fa-', '', $icon ) );
+		$icon_id = "fa-extra-$icon";
+		$result[] = array(
+			'id'    => $icon_id,
+			'fa'    => $icon_id,
+			"title" => $title,
+			'mime'  => "fa-icon/font",
+			'sizes' => null,
+		);
+	}
+	return $result;
+});
 function one_page_express_header_main_class( $inner = false ) {
 	$classes = array();
 

@@ -525,6 +525,7 @@ class FontAwesomeIconControl extends \Kirki_Customize_Control
     public function enqueue()
     {
         wp_enqueue_style('font-awesome', get_template_directory_uri() . '/assets/font-awesome/font-awesome.min.css');
+        wp_enqueue_style('font-awesome-extra', get_template_directory_uri() . '/assets/font-awesome/font-awesome-extra.min.css');
         wp_enqueue_style('font-awesome-media-tab', get_template_directory_uri() . "/customizer/css/fa-tab.css", array('media-views'));
         wp_enqueue_script('font-awesome-media-tab', get_template_directory_uri() . "/customizer/js/fa-tab.js", array('media-views'));
         wp_enqueue_script('font-awesome-icon-control', get_template_directory_uri() . "/customizer/js/font-awesome-icon-control.js");
