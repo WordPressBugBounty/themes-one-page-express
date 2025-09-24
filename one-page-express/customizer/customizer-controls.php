@@ -533,6 +533,12 @@ class FontAwesomeIconControl extends \Kirki_Customize_Control
             'media_title'        => __('Select FontAwesome Icon', 'one-page-express'),
             'media_button_label' => __('Choose Icon', 'one-page-express'),
         ));
+
+        wp_localize_script('customize-base', 'extendControlsData',
+            array(
+                'extend_nonce'       => wp_create_nonce( 'extend_nonce' ),
+            )
+        );
     }
 
 

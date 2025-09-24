@@ -46,7 +46,7 @@
     var cpFaIcons = Backbone.Collection.extend({
         model: cpFAIconModel,
         initialize: function (data) {
-            this.url = parent.ajaxurl + "?action=cp_list_fa"
+            this.url = parent.ajaxurl + "?action=cp_list_fa&_wpnonce=" + extendControlsData.extend_nonce
         },
         parse: function (data) {
             return data;

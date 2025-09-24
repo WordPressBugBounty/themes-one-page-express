@@ -2640,6 +2640,10 @@ function one_page_express_print_video_container( $inner = false ) {
 }
 
 add_action( 'wp_ajax_cp_list_fa', function () {
+    check_ajax_referer('extend_nonce');
+    if ( ! is_user_logged_in() || ! current_user_can( 'edit_theme_options' ) ) {
+        die();
+    }
 	$result = array();
 	$icons  = ( require get_template_directory() . "/customizer/fa-icons-list.php" );
 
