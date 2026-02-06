@@ -1295,3 +1295,35 @@ li#accordion-section-one_page_express_header_layout button:before {
     margin-right: .5rem;
 }
 /* end */
+
+/** wp6.9 fixes*/
+.has-fit-text.wp-block-paragraph,
+.has-fit-text.wp-block-heading {
+    max-width: 800px;
+    overflow: hidden;
+}
+
+h1.has-fit-text.wp-block-heading {
+    line-height: 4rem
+}
+h2.has-fit-text.wp-block-heading {
+    line-height: 3rem;
+}
+
+h3.has-fit-text.wp-block-heading {
+    line-height: 2.25rem
+}
+
+h4.has-fit-text.wp-block-heading {
+    line-height: 1.75rem;
+}
+h5.has-fit-text.wp-block-heading {
+    line-height: 1.5rem
+}
+h6.has-fit-text.wp-block-heading {
+    line-height: 1.25rem
+}
+p.has-fit-text.wp-block-paragraph {
+    line-height: 1.5rem;
+}
+/*end*/
