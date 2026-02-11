@@ -2969,7 +2969,7 @@ function one_page_express_color_picker_scripts() {
 		'jquery-ui-slider',
 		'jquery-touch-punch'
 	), false, true );
-	wp_enqueue_script( 'wp-color-picker', admin_url( 'js/color-picker.min.js' ), array( 'iris', 'wp' ), false, true );
+	wp_enqueue_script( 'wp-color-picker', admin_url( 'js/color-picker.min.js' ), array( 'iris', 'wp-i18n' ), false, true );
 
 	$colorpicker_l10n = array(
 		'clear'         => __( 'Clear', 'one-page-express' ),
