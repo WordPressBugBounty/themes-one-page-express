@@ -1,0 +1,8 @@
+.notice.ope-notice,
+#setting-error-tgmpa.notice.notice-warning {
+    background: white;
+}
+
+.block-editor-page .block-editor-block-inspector > .block-editor-block-inspector-edit-contents {
+    height: auto !important;
+}

@@ -14,6 +14,7 @@ class Companion_Plugin {
 		self::$slug   = $config['slug'];
 		add_action( 'tgmpa_register', array( __CLASS__, 'tgma_register' ) );
 		add_action( 'wp_ajax_companion_disable_popup', array( __CLASS__, 'companion_disable_popup' ) );
+        add_action('admin_enqueue_scripts', array(__CLASS__, 'load_admin_scripts'));
 
 		if ( ! get_option( 'one_page_express_companion_disable_popup', false ) ) {
 			if ( ! defined( "OPE_COMPANION_AUTOLOAD" ) ) {
@@ -29,9 +30,13 @@ class Companion_Plugin {
 	}
 
 
+    public static function load_admin_scripts() {
+        wp_enqueue_style( 'one_page_express_admin_pages_css', get_template_directory_uri() . '/assets/css/admin.css' );
+
+    }
 	public static function plugin_notice() {
 		?>
-        <div class="notice notice-success is-dismissible materialis-welcome-notice">
+        <div class="ope-notice notice notice-success is-dismissible ope-welcome-notice">
             <div class="notice-content-wrapper">
 				<?php require_once( get_template_directory() . "/customizer/start-with-frontpage.php" ); ?>
             </div>

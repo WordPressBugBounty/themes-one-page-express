@@ -26,7 +26,7 @@ function one_page_express_check_php_version(){
 
 function one_page_express_php_version_notice() {
     ?>
-    <div class="notice notice-alt notice-error notice-large">
+    <div class="ope-notice notice notice-alt notice-error notice-large">
         <h4><?php _e('One Page Express theme activation failed!','one-page-express'); ?></h4>
         <p>
             <?php _e( 'You need to update your PHP version to use the <strong>One Page Express</strong>.', 'one-page-express' ); ?> <br />
